@@ -1,12 +1,49 @@
+import { useEffect, useState } from "react";
 import MyHeader from "./components/Header";
 import Layout from "./components/Layout";
+import Learning from "./components/Learning/Learning";
+import Table from "./components/Table";
 
 function App() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const preferDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && preferDark);
+
+    setIsDark(shouldBeDark);
+
+    if (shouldBeDark) {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+
+    // Сохраняем в localStorage
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+
+    // Применяем класс к html
+    if (newTheme) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
   return (
-    <div>
+    <div className={`min-h-screen ${isDark ? "dark bg-gray-900" : "bg-white"}`}>
       <Layout>
-        <MyHeader />
+        <MyHeader toggleTheme={toggleTheme} isDark={isDark} />
+        <Table />
       </Layout>
+      {/* <Learning /> */}
     </div>
   );
 }

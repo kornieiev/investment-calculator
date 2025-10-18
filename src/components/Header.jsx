@@ -6,7 +6,7 @@ export default function MyHeader({ isDark, toggleTheme }) {
       <img
         className='w-20 md:w-40 sm:w-32'
         src={logo}
-        alt='investment calculator logo'
+        alt='logo showing calculator '
       />
       <h1 className='text-3xl uppercase md:text-5xl sm:text-4xl text-indigo-950 dark:text-white/80'>
         investment calculator

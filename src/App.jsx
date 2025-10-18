@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MyHeader from "./components/Header";
 import Layout from "./components/Layout";
 import Learning from "./components/Learning/Learning";
-import Table from "./components/Table";
+import Calculator from "./components/Calculator";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
@@ -41,7 +41,8 @@ function App() {
     <div className={`min-h-screen ${isDark ? "dark bg-gray-900" : "bg-white"}`}>
       <Layout>
         <MyHeader toggleTheme={toggleTheme} isDark={isDark} />
-        <Table />
+
+        <Calculator />
       </Layout>
       {/* <Learning /> */}
     </div>

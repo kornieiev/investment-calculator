@@ -38,7 +38,9 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen ${isDark ? "dark bg-gray-900" : "bg-white"}`}>
+    <div
+      className={`min-h-screen ${isDark ? "dark bg-cyan-900" : "bg-blue-400"}`}
+    >
       <Layout>
         <MyHeader toggleTheme={toggleTheme} isDark={isDark} />
 

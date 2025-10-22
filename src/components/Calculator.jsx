@@ -15,7 +15,7 @@ export default function Calculator() {
   const [errors, setErrors] = useState({});
 
   function onHandleChange(e, key) {
-    if (e <= 0 || e % 1 !== 0) {
+    if (e < 0 || e % 1 !== 0) {
       setErrors((prev) => ({
         ...prev,
         [key]: "Need to be more than 0 and integer",
